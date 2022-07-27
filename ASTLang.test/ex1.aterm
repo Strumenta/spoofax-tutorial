@@ -1,0 +1,9 @@
+AST(
+  [ Node(
+      None()
+    , "SimpleID"
+    , Some(IsClause("ID"))
+    , [Field("value", String(), Empty())]
+    )
+  ]
+)

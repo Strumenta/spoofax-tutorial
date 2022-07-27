@@ -1,0 +1,27 @@
+root node CompilationUnit
+  imports: Import*
+  topLevelElement: TopLevelElement*
+
+node Import
+  id: ID
+
+abstract node ID
+	
+node SimpleID is ID
+	value: String
+	
+node QualifiedID is ID
+	container: ID
+	value: String		
+
+abstract node TopLevelElement
+
+abstract node Statement is TopLevelEment
+
+node PrintStatement is Statement
+	expr: Expression
+	
+abstract node Expression
+
+node IntLiteral is Expression
+	value: Int

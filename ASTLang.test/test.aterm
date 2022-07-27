@@ -1,0 +1,33 @@
+TestSuite(
+  [Name("test"), Language("ASTLang")]
+, None()
+, [ Test2(
+      "parse "
+    , "[["
+    , Fragment("\n\tnode CompilationUnit\n\tnode Import\n", Done())
+    , "]]"
+    , [ParseSucceeds()]
+    )
+  , Test2(
+      "parse "
+    , "[["
+    , Fragment("\n\tnode CompilationUnit\n\t\timports: Import*\n\t\ttopLevelElement: TopLevelElement*\n", Done())
+    , "]]"
+    , [ParseSucceeds()]
+    )
+  , Test2(
+      "parse "
+    , "[["
+    , Fragment("\n\tabstract node ID\n", Done())
+    , "]]"
+    , [ParseSucceeds()]
+    )
+  , Test2(
+      "parse "
+    , "[["
+    , Fragment("\n\tnode SimpleID is ID\n\t\tvalue: String\n", Done())
+    , "]]"
+    , [ParseSucceeds()]
+    )
+  ]
+)

@@ -1,0 +1,39 @@
+---
+id: com.strumenta.astlang:ASTLang:0.1.0-SNAPSHOT
+name: ASTLang
+dependencies:
+  compile:
+  - org.metaborg:org.metaborg.meta.lang.esv:${metaborgVersion}
+  - org.metaborg:org.metaborg.meta.lang.template:${metaborgVersion}
+  source:
+  - org.metaborg:meta.lib.spoofax:${metaborgVersion}
+pardonedLanguages:
+- EditorService
+- Stratego-Sugar
+- SDF
+language:
+  sdf:
+    enabled: true
+    pretty-print: ASTLang
+    sdf2table: java
+    placeholder:
+      prefix: "$"
+  stratego:
+    enabled: true
+    format: jar
+    args:
+    - -la
+    - stratego-lib
+    - -la
+    - stratego-gpp
+    - -la
+    - stratego-sglr
+    - -la
+    - stratego-xtc
+    - -la
+    - stratego-aterm
+    - -la
+    - stratego-sdf
+    - -la
+    - strc
+exports:

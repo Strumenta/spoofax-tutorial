@@ -1,0 +1,43 @@
+module ASTLang
+
+imports
+  
+  Common  
+
+context-free start-symbols
+  
+  Start
+
+context-free sorts
+
+  Start Node Field Type Qualifier Abstract IsClause Root
+
+context-free syntax
+  
+  Start.AST = Node+
+  
+  Abstract.Abstract = "abstract"
+  
+  Root.Root = "root"
+  
+  Node.Node = Root? Abstract? "node" ID IsClause? Field*
+  
+  IsClause.IsClause = "is" ID 
+  
+  Field.Field = ID ":" Type Qualifier
+  
+  Type.RefType = ID
+  Type.Int = [Int]
+  Type.String = [String]
+  
+  Qualifier.Empty = <>
+  Qualifier.ZeroOrMore = "*"
+  Qualifier.ZeroOrOne = "?"
+  Qualifier.OneOrMore = "+"
+  
+context-free priorities
+	Type.Int> Type.String > Type.RefType  
+  
+template options
+	ID = keyword {reject}   
+	
